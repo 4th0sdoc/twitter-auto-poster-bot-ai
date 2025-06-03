@@ -24,9 +24,9 @@ async function run() {
   });
 
   // Write your prompt here
-  const prompt =
-    "generate a web development content, tips and tricks or something new or some rant or some advice as a tweet, it should not be vague and should be unique; under 280 characters and should be plain text, you can use emojis";
-
+  const prompt = 
+  "Gere um tweet de conteúdo adulto NSFW em português br, único e direto, com no máximo 280 caracteres. Pode ser uma confissão, fantasia, provocação, pergunta sexual ou bait. Use emojis. Não use hashtags. Não seja vago. Não artificial. Não tenha medo.";
+  
   const result = await model.generateContent(prompt);
   const response = await result.response;
   const text = response.text();
