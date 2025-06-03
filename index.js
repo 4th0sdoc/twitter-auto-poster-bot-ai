@@ -14,18 +14,17 @@ const twitterClient = new TwitterApi({
 const generationConfig = {
   maxOutputTokens: 400,
 };
+
 const genAI = new GenAI.GoogleGenerativeAI(SECRETS.GEMINI_API_KEY);
 
 async function run() {
-  // For text-only input, use the gemini-pro model
   const model = genAI.getGenerativeModel({
-    model: "gemini-pro",
+    model: "gemini-1.5-pro", // <- modelo atualizado
     generationConfig,
   });
 
-  // Write your prompt here
   const prompt = 
-  "Gere um tweet de conteúdo adulto NSFW em português br, único e direto, com no máximo 280 caracteres. Pode ser uma confissão, fantasia, provocação, pergunta sexual ou bait. Use emojis. Não use hashtags. Não seja vago. Não artificial. Não tenha medo.";
+    "Gere um tweet de conteúdo adulto NSFW em português br, único e direto, com no máximo 280 caracteres. Pode ser uma confissão, fantasia, provocação, pergunta sexual ou bait. Use emojis. Não use hashtags. Não seja vago. Não artificial. Não tenha medo.";
   
   const result = await model.generateContent(prompt);
   const response = await result.response;
